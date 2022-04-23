@@ -1,11 +1,31 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import {StyleSheet, Text, ScrollView} from 'react-native';
+import {Btn, SizedBox, Input} from '../../components/Atoms';
 
 export default function LoginPage({navigation}) {
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Login Screen</Text>
-      <Button onPress={() => {navigation.push('Home')}} title='Go to Home'></Button>
-    </View>
+    <>
+      <ScrollView style={styles.wrapper}>
+        <SizedBox height={40} />
+        <Text style={{alignSelf: 'center'}}>Login Screen</Text>
+        <SizedBox height={150} />
+        <Input placeholder="Input Email Address..." />
+        <SizedBox height={10} />
+        <Input placeholder="Input Password..." />
+        <SizedBox height={10} />
+        <Btn
+          title="Submit"
+          onPress={() => {
+            navigation.push('Home');
+          }}
+        />
+      </ScrollView>
+    </>
   );
 }
+
+const styles = StyleSheet.create({
+  wrapper: {
+    padding: 20,
+  },
+});
